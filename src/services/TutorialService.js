@@ -2,7 +2,7 @@ import http from "../http-common";
 
 class TutorialDataService {
     async getAll() {
-        return http.get("/tutorials");
+        return await http.get("/tutorials");
     }
 
     async get(id) {

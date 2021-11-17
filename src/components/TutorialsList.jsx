@@ -132,8 +132,9 @@ export class TutorialsList extends Component {
     }
 
     retrieveTutorials = async() => {
-        let response = await TutorialDataService.getAll();
         try {
+            let response = await TutorialDataService.getAll();
+            console.log(response);
             this.setState({tutorials: response.data});
             console.log(response.data);//sentry (logging)
         }

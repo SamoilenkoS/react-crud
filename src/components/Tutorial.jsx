@@ -1,20 +1,10 @@
 import React, { Component } from "react";
 
 import TutorialDataService from "../services/TutorialService";
-/*import {AuthService} from "../services/AuthService";*/
 
 export class Tutorial extends Component {
     constructor(props) {
         super(props);
-
-        /*let loginData = {
-            login: "Admin",
-            password: "StrongPa$word!"
-        };
-        AuthService.login(loginData)
-            .then(response => {
-                this.setState(prevState => ({}))});//cookie
-        */
 
         this.state = {
             currentTutorial: {
