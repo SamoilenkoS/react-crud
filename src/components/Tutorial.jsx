@@ -107,8 +107,8 @@ export class Tutorial extends Component {
     }
 
     getTutorial = async (id) => {
-        let response = await TutorialDataService.get(id);
         try{
+            let response = await TutorialDataService.get(id);
             this.setState({currentTutorial: response.data});
             console.log(response.data);
         }
@@ -123,18 +123,14 @@ export class Tutorial extends Component {
             id: this.state.currentTutorial.id,
             title: this.state.currentTutorial.title,
             description: this.state.currentTutorial.description,
+            createdAt: this.state.currentTutorial.createdAt,
             published: status
         };
 
         try {
-            await TutorialDataService.update(tutorial);
-
-            await this.setState(prevState => ({
-                currentTutorial: {
-                    ...prevState.currentTutorial,
-                    published: status
-                }
-            }));
+            let obj = await TutorialDataService.update(tutorial);
+            console.log(obj.data);
+            await this.setState({currentTutorial: obj.data});
         }
         catch (e)
         {

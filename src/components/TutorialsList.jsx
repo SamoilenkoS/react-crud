@@ -23,7 +23,7 @@ export class TutorialsList extends Component {
 
         return (
             <div className="list row">
-                <div className="col-md-12">
+                <div className="col-md-15">
                     <div className="input-group mb-3">
                         <input
                             type="text"
@@ -38,8 +38,8 @@ export class TutorialsList extends Component {
                     <h4>Tutorials List</h4>
 
                     <ul className="list-group">
-                        {tutorials &&
-                        tutorials.map((tutorial, index) => (
+                        {
+                            tutorials && tutorials.map((tutorial, index) => (
                             <li//tutorial list item
                                 className={
                                     "list-group-item " +
@@ -50,7 +50,8 @@ export class TutorialsList extends Component {
                             >
                                 {tutorial.title}
                             </li>
-                        ))}
+                        ))
+                        }
                     </ul>
 
                     <button
@@ -153,8 +154,8 @@ export class TutorialsList extends Component {
     }
 
     removeAllTutorials = async() => {
-        let response = await TutorialDataService.deleteAll();
         try{
+            let response = await TutorialDataService.deleteAll();
             console.log(response.data);
             await this.refreshList(); //set empty state//Initialize
         }
